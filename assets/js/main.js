@@ -108,55 +108,17 @@ document.addEventListener('DOMContentLoaded', () => {
     startAuto();
   })();
 
-  // ── OFFICE SELECTOR (Contact page) ──
-  window.selectOffice = function(val) {
-    const hiddenInput = document.getElementById('selected-office');
-    if (hiddenInput) hiddenInput.value = val;
-
-    const lblF   = document.getElementById('lbl-factory');
-    const lblA   = document.getElementById('lbl-admin');
-    const radF   = document.getElementById('radio-factory');
-    const radA   = document.getElementById('radio-admin');
-    const notice = document.getElementById('email-notice-text');
-    const nBox   = document.getElementById('email-notice');
-    const dot    = '<div style="width:10px;height:10px;border-radius:50%;background:var(--red);"></div>';
-
-    if (val === 'factory') {
-      if (lblF) { lblF.style.borderColor = 'var(--red)'; lblF.style.background = '#fff8f8'; }
-      if (lblA) { lblA.style.borderColor = 'var(--border)'; lblA.style.background = '#fff'; }
-      if (radF) { radF.style.borderColor = 'var(--red)'; radF.innerHTML = dot; }
-      if (radA) { radA.style.borderColor = '#ccc'; radA.innerHTML = ''; }
-      if (notice) notice.textContent = '✅ Enquiry will be sent to info@shivamcartons.com (Factory — Chandkhed, Maval)';
-    } else {
-      if (lblA) { lblA.style.borderColor = 'var(--red)'; lblA.style.background = '#fff8f8'; }
-      if (lblF) { lblF.style.borderColor = 'var(--border)'; lblF.style.background = '#fff'; }
-      if (radA) { radA.style.borderColor = 'var(--red)'; radA.innerHTML = dot; }
-      if (radF) { radF.style.borderColor = '#ccc'; radF.innerHTML = ''; }
-      if (notice) notice.textContent = '✅ Enquiry will be sent to admin@shivamcartons.com (Admin Office — Model Colony, Pune)';
-    }
-    if (nBox) { nBox.style.background = '#f0fff4'; nBox.style.borderColor = '#a5d6a7'; }
-  };
-
   // ── SUBMIT ENQUIRY ──
   window.submitEnquiry = function() {
-    const name      = document.getElementById('eq-name')?.value.trim();
-    const company   = document.getElementById('eq-company')?.value.trim();
-    const phone     = document.getElementById('eq-phone')?.value.trim();
-    const email     = document.getElementById('eq-email')?.value.trim();
-    const product   = document.getElementById('eq-product')?.value;
-    const qty       = document.getElementById('eq-qty')?.value.trim();
-    const city      = document.getElementById('eq-city')?.value.trim();
-    const details   = document.getElementById('eq-details')?.value.trim();
-    const officeVal = document.getElementById('selected-office')?.value;
+    const name    = document.getElementById('eq-name')?.value.trim();
+    const company = document.getElementById('eq-company')?.value.trim();
+    const address = document.getElementById('eq-address')?.value.trim();
+    const phone   = document.getElementById('eq-phone')?.value.trim();
+    const email   = document.getElementById('eq-email')?.value.trim();
+    const city    = document.getElementById('eq-city')?.value.trim();
 
-    if (!name)      { alert('Please enter your name.'); return; }
-    if (!phone)     { alert('Please enter your phone number.'); return; }
-    if (!officeVal) { alert('Please select a contact office.'); return; }
-
-    const toEmail     = officeVal === 'factory' ? 'info@shivamcartons.com' : 'admin@shivamcartons.com';
-    const officeLabel = officeVal === 'factory'
-      ? '🏭 Factory — Survey No. 284/1, Chandkhed, Maval, Pune 410 506'
-      : '🏢 Admin  — 1126/2, Padmaban Apts, Model Colony, Pune 411 016';
+    if (!name)  { alert('Please enter your name.'); return; }
+    if (!phone) { alert('Please enter your phone number.'); return; }
 
     const subject = encodeURIComponent(`New Packaging Enquiry from ${name}${company ? ' – ' + company : ''}`);
     const body    = encodeURIComponent(
@@ -166,24 +128,15 @@ document.addEventListener('DOMContentLoaded', () => {
 CONTACT DETAILS
 ━━━━━━━━━━━━━━━━━━━━━
 Name        : ${name}
-Company     : ${company   || '—'}
+Company     : ${company || '—'}
+Address     : ${address || '—'}
 Phone       : ${phone}
-Email       : ${email     || '—'}
-City        : ${city      || '—'}
-
-━━━━━━━━━━━━━━━━━━━━━
-REQUIREMENT
-━━━━━━━━━━━━━━━━━━━━━
-Product     : ${product   || '—'}
-Quantity    : ${qty       || '—'}
-Details     : ${details   || '—'}
-
-━━━━━━━━━━━━━━━━━━━━━
-Office      : ${officeLabel}
+Email       : ${email   || '—'}
+City        : ${city    || '—'}
 ━━━━━━━━━━━━━━━━━━━━━`
     );
 
-    window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info@shivamcartons.com?subject=${subject}&body=${body}`;
 
     setTimeout(() => {
       const s = document.getElementById('form-success');

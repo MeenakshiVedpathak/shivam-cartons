@@ -7,7 +7,7 @@
 <title>Quality & Governance | Shivam Cartons</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=2">
 </head>
 <body>
 
@@ -57,7 +57,6 @@
           <a href="quality.html#cert"><i class="fas fa-chevron-right"></i>Certifications</a>
           <a href="quality.html#qa"><i class="fas fa-chevron-right"></i>QA Process</a>
           <a href="quality.html#policies"><i class="fas fa-chevron-right"></i>Policies & Compliance</a>
-          <a href="quality.html#csr"><i class="fas fa-chevron-right"></i>CSR</a>
         </div>
       </li>
       <li>
@@ -67,7 +66,7 @@
           <a href="clients.html#testimonials"><i class="fas fa-chevron-right"></i>Testimonials</a>
         </div>
       </li>
-      <li><a href="contact.html#enquiry" class="ncta">Get Quote</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
     </ul>
     <button class="hburg"><i class="fas fa-bars"></i></button>
   </div>
@@ -86,7 +85,6 @@
     <button class="qtb on" data-tab="cert" onclick="qt('cert')">Certifications</button>
     <button class="qtb" data-tab="qa" onclick="qt('qa')">QA Process</button>
     <button class="qtb" data-tab="policies" onclick="qt('policies')">Policies & Compliance</button>
-    <button class="qtb" data-tab="csr" onclick="qt('csr')">CSR</button>
   </div>
 </div>
 
@@ -327,39 +325,6 @@
   </section>
 </div>
 
-<!-- CSR -->
-<div class="qtcont" id="qc-csr">
-  <section id="csr">
-    <div class="si">
-      <div class="cx">
-        <div class="tag">CSR</div>
-        <h2 class="sh">Corporate Social Responsibility</h2>
-        <div class="div mx"></div>
-        <p class="ss mx">We believe packaging businesses have a responsibility to the communities and environment they operate in. Here's how we give back.</p>
-      </div>
-      <div class="csrgrid" style="margin-top:38px;">
-        <div class="csrc reveal">
-          <div class="csrh env"><i class="fas fa-tree"></i><h3>Environment</h3></div>
-          <div class="csrb">
-            <p>All corrugated waste and paper offcuts from our plant are 100% recycled through certified paper recyclers. We have planted 500+ trees around our Chandkhed facility and operate a rainwater harvesting system to reduce groundwater usage.</p>
-          </div>
-        </div>
-        <div class="csrc reveal">
-          <div class="csrh edu"><i class="fas fa-graduation-cap"></i><h3>Education</h3></div>
-          <div class="csrb">
-            <p>Shivam Cartons sponsors annual scholarships for children of plant workers pursuing technical education. We partner with local ITIs in Maval to offer apprenticeship placements and vocational training in machine operation and print technology.</p>
-          </div>
-        </div>
-        <div class="csrc reveal">
-          <div class="csrh com"><i class="fas fa-hands-helping"></i><h3>Community</h3></div>
-          <div class="csrb">
-            <p>We actively participate in the Chandkhed Gram Panchayat's cleanliness and road-repair drives. During the COVID-19 pandemic, Shivam Cartons donated corrugated packaging for medical supply distribution in rural Maval and Pune districts.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
 
 <!-- CTA -->
 <div class="ctaband">
@@ -425,7 +390,7 @@
 <script>
   // Open correct tab from URL hash
   const hash = location.hash.replace('#','');
-  if (['cert','qa','policies','csr'].includes(hash)) qt(hash);
+  if (['cert','qa','policies'].includes(hash)) qt(hash);
 </script>
 </body>
 </html>
