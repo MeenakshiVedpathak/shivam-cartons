@@ -145,3 +145,5 @@ City        : ${city    || '—'}
   };
 
 });
+
+document.getElementById("dynamic-year").textContent = new Date().getFullYear();
