@@ -8,7 +8,8 @@ html{scroll-behavior:smooth;}
 body{font-family:'Poppins',sans-serif;color:#333;background:#fff;overflow-x:hidden;}
 
 :root{
-  --red:#e63946;
+  --red:#e64004;
+  /* --red:#e63946; */
   --red2:#c1121f;
   --red3:#a00f1a;
   --red-light:#fdeaea;
@@ -24,9 +25,9 @@ body{font-family:'Poppins',sans-serif;color:#333;background:#fff;overflow-x:hidd
 header{background:#fff;box-shadow:0 2px 14px rgba(230,57,70,.1);position:sticky;top:0;z-index:200;}
 .navi{max-width:1200px;margin:auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px;}
 .logo-w{display:flex;align-items:center;gap:11px;text-decoration:none;}
-.logo-b{width:44px;height:44px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;}
-.logo-b img{width:28px;height:28px;object-fit:contain;}
-.logo-t .l1{font-size:1.22rem;font-weight:800;color:var(--red);line-height:1.1;}
+.logo-b{width:44px;height:44px;display:flex;align-items:center;justify-content:center;}
+.logo-b img{width:40px;object-fit:contain;}
+.logo-t .l1{font-size:1.10rem;font-weight:600;color:var(--red);line-height:1.1;}
 .logo-t .l2{font-size:.6rem;color:#888;letter-spacing:1.2px;text-transform:uppercase;}
 .nl{display:flex;list-style:none;gap:2px;align-items:center;}
 .nl>li{position:relative;}
@@ -44,7 +45,7 @@ header{background:#fff;box-shadow:0 2px 14px rgba(230,57,70,.1);position:sticky;
 /* ── HERO ── */
 .hero{position:relative;height:100vh;min-height:560px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
-.hero-fallback{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,#6b0f14,#a00f1a 35%,#c1121f 70%,#e63946);}
+.hero-fallback{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,#6b0f14,#a00f1a 35%,#c1121f 70%,#e64004);}
 .hero-ov{position:absolute;inset:0;z-index:1;background:rgba(60,5,10,.4);}
 .hero-c{position:relative;z-index:2;max-width:820px;padding:0 24px;}
 .hero-c h1{font-size:clamp(2rem,5vw,3.8rem);font-weight:800;color:#fff;line-height:1.12;margin-bottom:18px;text-shadow:0 2px 20px rgba(0,0,0,.2);}
@@ -66,11 +67,11 @@ header{background:#fff;box-shadow:0 2px 14px rgba(230,57,70,.1);position:sticky;
 .hs-dot.active{background:#fff;transform:scale(1.25);}
 
 /* ── BUTTONS ── */
-.btn-red{display:inline-block;background:var(--red);color:#fff;padding:13px 28px;border-radius:6px;font-weight:700;font-size:.88rem;text-decoration:none;text-transform:uppercase;letter-spacing:.4px;transition:.2s;}
+.btn-red{display:inline-block;background:var(--red);color:#fff;padding:13px 28px;border-radius:6px;font-weight:600;font-size:.88rem;text-decoration:none;letter-spacing:.4px;transition:.2s;}
 .btn-red:hover{background:var(--red2);transform:translateY(-2px);}
 .btn-outline{display:inline-block;border:2px solid var(--red);color:var(--red);padding:12px 24px;border-radius:6px;font-weight:600;font-size:.88rem;text-decoration:none;margin-left:10px;transition:.2s;}
 .btn-outline:hover{background:var(--red-light);}
-.btn-white{display:inline-block;background:#fff;color:var(--red);padding:14px 38px;border-radius:6px;font-weight:700;font-size:.95rem;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;transition:.2s;}
+.btn-white{display:inline-block;background:#fff;color:var(--red);padding:14px 38px;border-radius:6px;font-weight:600;font-size:.95rem;text-decoration:none;letter-spacing:.5px;transition:.2s;}
 .btn-white:hover{background:var(--red-light);transform:translateY(-2px);}
 .btn-white2{display:inline-block;border:2px solid rgba(255,255,255,.7);color:#fff;padding:13px 30px;border-radius:6px;font-weight:600;font-size:.95rem;text-decoration:none;margin-left:12px;transition:.2s;}
 .btn-white2:hover{background:rgba(255,255,255,.1);}
@@ -87,6 +88,7 @@ header{background:#fff;box-shadow:0 2px 14px rgba(230,57,70,.1);position:sticky;
 section{padding:78px 24px;}
 .si{max-width:1200px;margin:auto;}
 .tag{display:inline-block;background:var(--red-light);color:var(--red);font-size:.71rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:30px;margin-bottom:12px;}
+.tag-normal{display:inline-block;background:var(--red-light);color:var(--red);font-size:.71rem;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:30px;margin-bottom:12px;}
 .sh{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;color:var(--dark);margin-bottom:10px;line-height:1.2;}
 .ss{color:#666;font-size:.93rem;line-height:1.78;max-width:620px;}
 .div{width:46px;height:4px;background:var(--red);border-radius:2px;margin:12px 0 28px;}
@@ -295,7 +297,7 @@ section{padding:78px 24px;}
 .fg input,.fg select,.fg textarea{width:100%;padding:10px 13px;border:2px solid #eee;border-radius:8px;font-family:'Poppins',sans-serif;font-size:.83rem;color:#333;outline:none;transition:.2s;}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--red);}
 .fg textarea{resize:vertical;min-height:96px;}
-.sbtn{width:100%;padding:15px;background:var(--red);color:#fff;border:none;border-radius:8px;font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:.2s;text-transform:uppercase;letter-spacing:.6px;}
+.sbtn{width:100%;padding:15px;background:var(--red);color:#fff;border:none;border-radius:8px;font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:.2s;letter-spacing:.6px;}
 .sbtn:hover{background:var(--red2);}
 
 /* ── CTA BAND ── */
@@ -311,7 +313,7 @@ section{padding:78px 24px;}
 footer{background:#f7f7f7;padding:58px 24px 22px;border-top:3px solid var(--red);}
 .fgrid{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:42px;}
 .flogo{display:flex;align-items:center;gap:10px;margin-bottom:14px;text-decoration:none;}
-.flb{width:36px;height:36px;background:var(--red);border-radius:6px;overflow:hidden;}
+.flb{width:40px;height:40px;overflow:hidden;}
 .flb img{width:100%;height:100%;object-fit:contain;}
 .flogo span{font-size:1.1rem;font-weight:800;color:var(--red);}
 .fdesc{font-size:.81rem;color:#777;line-height:1.75;margin-bottom:16px;}
