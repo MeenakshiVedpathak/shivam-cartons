@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 
   // ── SUBMIT ENQUIRY ──
-  window.submitEnquiry = function() {
+  window.submitEnquiry = async function() {
     const name    = document.getElementById('eq-name')?.value.trim();
     const company = document.getElementById('eq-company')?.value.trim();
     const address = document.getElementById('eq-address')?.value.trim();
@@ -134,28 +134,48 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!name)  { alert('Please enter your name.'); return; }
     if (!phone) { alert('Please enter your phone number.'); return; }
 
-    const subject = encodeURIComponent(`New Packaging Enquiry from ${name}${company ? ' – ' + company : ''}`);
-    const body    = encodeURIComponent(
-`New enquiry from shivamcartons.com:
+    const btn = document.querySelector('.sbtn');
+    if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right:8px;"></i>Sending...'; }
 
-━━━━━━━━━━━━━━━━━━━━━
-CONTACT DETAILS
-━━━━━━━━━━━━━━━━━━━━━
-Name        : ${name}
-Company     : ${company || '—'}
-Address     : ${address || '—'}
-Phone       : ${phone}
-Email       : ${email   || '—'}
-City        : ${city    || '—'}
-━━━━━━━━━━━━━━━━━━━━━`
-    );
+    const message = [
+      'Name    : ' + name,
+      'Company : ' + (company || '—'),
+      'Address : ' + (address || '—'),
+      'Phone   : ' + phone,
+      'Email   : ' + (email   || '—'),
+      'City    : ' + (city    || '—'),
+    ].join('\n');
 
-    window.location.href = `mailto:info@shivamcartons.com?subject=${subject}&body=${body}`;
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'REPLACE_WITH_YOUR_WEB3FORMS_KEY',
+          subject: 'New Packaging Enquiry from ' + name + (company ? ' – ' + company : ''),
+          from_name: 'Shivam Cartons Website',
+          name, email: email || 'not provided', phone, message,
+          botcheck: ''
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        const s = document.getElementById('form-success');
+        if (s) { s.style.display = 'flex'; s.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        document.getElementById('eq-name').value = '';
+        document.getElementById('eq-company').value = '';
+        document.getElementById('eq-address').value = '';
+        document.getElementById('eq-phone').value = '';
+        document.getElementById('eq-email').value = '';
+        document.getElementById('eq-city').value = '';
+      } else {
+        alert('Something went wrong. Please call us or email info@shivamcartons.com directly.');
+      }
+    } catch (e) {
+      alert('Network error. Please call us or email info@shivamcartons.com directly.');
+    }
 
-    setTimeout(() => {
-      const s = document.getElementById('form-success');
-      if (s) { s.style.display = 'flex'; s.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-    }, 600);
+    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-paper-plane" style="margin-right:8px;"></i>Send Enquiry'; }
   };
 
 });
