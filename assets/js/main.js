@@ -63,6 +63,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  window.playYT = function(el) {
+    const id = el.dataset.ytid;
+    if (!id) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'width:100%;height:100%;border:0;display:block;';
+    el.style.cursor = 'default';
+    el.onclick = null;
+    el.innerHTML = '';
+    el.appendChild(iframe);
+  };
+
   // ── QUALITY TABS ──
   window.qt = function(tab) {
     document.querySelectorAll('.qtb').forEach(b => b.classList.toggle('on', b.dataset.tab === tab));
