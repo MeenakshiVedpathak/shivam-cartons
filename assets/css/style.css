@@ -139,6 +139,9 @@ section{padding:78px 24px;}
 .vf i{color:var(--red);width:17px;margin-top:2px;}
 .vf span{font-size:.86rem;color:#555;line-height:1.5;}
 
+
+.vplayer1{position:relative;border-radius:14px;overflow:hidden;background:var(--red-light);cursor:pointer;box-shadow:0 6px 30px rgba(240,120,32,.15);}
+.vplayer1:hover .pb{transform:scale(1.1);}
 /* ── WHY US ── */
 .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;}
 .wcard{padding:28px 22px;border:2px solid var(--border);border-radius:14px;transition:.3s;background:#fff;position:relative;overflow:hidden;}
@@ -354,7 +357,9 @@ footer{background:#f7f7f7;padding:58px 24px 22px;border-top:3px solid var(--red)
 
 /* ── AWARDS ── */
 .award-card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(240,120,32,.13);}
-
+.ft-25{
+  font-size: 25px !important;
+}
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .pgrid{grid-template-columns:1fr 1fr;}
@@ -389,4 +394,9 @@ footer{background:#f7f7f7;padding:58px 24px 22px;border-top:3px solid var(--red)
   .clgrid{grid-template-columns:1fr 1fr;}
   .qt-grid{grid-template-columns:1fr 1fr;}
   .org-cols{grid-template-columns:1fr 1fr;}
+
+  .ft-25{
+  font-size: 20px !important;
 }
+}
+

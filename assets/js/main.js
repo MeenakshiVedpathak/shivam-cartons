@@ -130,9 +130,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const phone   = document.getElementById('eq-phone')?.value.trim();
     const email   = document.getElementById('eq-email')?.value.trim();
     const city    = document.getElementById('eq-city')?.value.trim();
+    const enq_description    = document.getElementById('eq-description')?.value.trim();
 
     if (!name)  { alert('Please enter your name.'); return; }
     if (!phone) { alert('Please enter your phone number.'); return; }
+    if (!email) { alert('Please enter your email.'); return; }
+    if (!city) { alert('Please enter city.'); return; }
+    if (!enq_description) { alert('Please enter enquiry details.'); return; }
+
 
     const btn = document.querySelector('.sbtn');
     if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right:8px;"></i>Sending...'; }
@@ -144,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'Phone   : ' + phone,
       'Email   : ' + (email   || '—'),
       'City    : ' + (city    || '—'),
+      'Enquiry : ' + enq_description
     ].join('\n');
 
     try {
@@ -168,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('eq-phone').value = '';
         document.getElementById('eq-email').value = '';
         document.getElementById('eq-city').value = '';
+        document.getElementById('eq-description').value = '';
       } else {
         alert('Something went wrong. Please call us or email info@shivamcartons.com directly.');
       }
