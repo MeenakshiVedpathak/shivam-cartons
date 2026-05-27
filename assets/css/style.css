@@ -185,6 +185,9 @@ section{padding:78px 24px;}
 .mach-back ul li{font-size:.75rem;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:6px;margin-bottom:5px;}
 .mach-back ul li i{font-size:.65rem;color:rgba(255,255,255,.7);}
 
+/* ── QA FULL GRID ── */
+.qa-full-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:38px;}
+
 /* ── QA TESTER CARDS ── */
 .qt-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:28px;}
 .qtc{background:#fff;border-radius:14px;border:2px solid var(--border);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);transition:.3s;position:relative;}
@@ -402,6 +405,7 @@ footer{background:#f7f7f7;padding:58px 24px 22px;border-top:3px solid var(--red)
   .org-cols{grid-template-columns:repeat(3,1fr);}
   .mach-grid{grid-template-columns:repeat(2,1fr);}
   .qt-grid{grid-template-columns:repeat(3,1fr);}
+  .qa-full-grid{grid-template-columns:repeat(3,1fr);}
   .team-members-grid{grid-template-columns:repeat(4,1fr);}
 }
 @media(max-width:768px){
@@ -419,6 +423,7 @@ footer{background:#f7f7f7;padding:58px 24px 22px;border-top:3px solid var(--red)
   .org-card{width:90%;max-width:320px;}
   .mach-grid{grid-template-columns:1fr;}
   .qt-grid{grid-template-columns:repeat(2,1fr);}
+  .qa-full-grid{grid-template-columns:repeat(2,1fr);}
   .pillars-grid{grid-template-columns:1fr 1fr;}
   .team-members-grid{grid-template-columns:repeat(3,1fr);}
 }
