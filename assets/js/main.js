@@ -83,43 +83,27 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.qtcont').forEach(c => c.classList.toggle('on', c.id === 'qc-' + tab));
   };
 
-  // ── HERO SLIDER ──
+  // ── HERO DUAL VIDEO BACKGROUND ──
   (function() {
-    var slides = document.querySelectorAll('.hslide');
-    var dots   = document.querySelectorAll('.hs-dot');
-    if (!slides.length) return;
-    var current = 0;
-    var timer;
+    var vid1 = document.getElementById('heroVid1');
+    var vid2 = document.getElementById('heroVid2');
+    if (!vid1 || !vid2) return;
 
-    function goTo(n) {
-      slides[current].classList.remove('active');
-      dots[current].classList.remove('active');
-      current = (n + slides.length) % slides.length;
-      slides[current].classList.add('active');
-      dots[current].classList.add('active');
+    function switchTo(next, prev) {
+      next.currentTime = 0;
+      var playPromise = next.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function() {});
+      }
+      next.classList.add('active');
+      prev.classList.remove('active');
     }
 
-    function next() { goTo(current + 1); }
-    function prev() { goTo(current - 1); }
+    vid1.addEventListener('ended', function() { switchTo(vid2, vid1); });
+    vid2.addEventListener('ended', function() { switchTo(vid1, vid2); });
 
-    function startAuto() {
-      clearInterval(timer);
-      timer = setInterval(next, 4000);
-    }
-
-    var btnPrev = document.querySelector('.hs-prev');
-    var btnNext = document.querySelector('.hs-next');
-    if (btnPrev) btnPrev.addEventListener('click', function() { prev(); startAuto(); });
-    if (btnNext) btnNext.addEventListener('click', function() { next(); startAuto(); });
-
-    dots.forEach(function(dot) {
-      dot.addEventListener('click', function() {
-        goTo(parseInt(this.dataset.index, 10));
-        startAuto();
-      });
-    });
-
-    startAuto();
+    // Attempt autoplay; browsers may block unmuted autoplay
+    vid1.play().catch(function() {});
   })();
 
   // ── SUBMIT ENQUIRY ──
