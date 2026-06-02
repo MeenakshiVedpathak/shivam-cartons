@@ -93,7 +93,6 @@
   <div class="stats-i">
     <div class="st"><div class="n" data-target="25" data-suffix="+">0+</div><div class="l">Years Experience</div></div>
     <div class="st"><div class="n ft-25" data-text="FMCG">Trusted FMCG &amp; Industrial Partner</div></div>
-    <div class="st"><div class="n" data-target="7200" data-suffix="">0</div><div class="l">TPA Capacity</div></div>
     <div class="st"><div class="n" data-text="ISO">ISO</div><div class="l">9001:2015 Certified</div></div>
   </div>
 </div>
@@ -104,9 +103,7 @@
     <div class="ag">
       <div class="ai reveal">
         <div class="aibox" style="padding:0;overflow:hidden;">
-          <video id="plantVid" muted loop playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <source src="assets/video/plant-tour.mp4" type="video/mp4">
-          </video>
+          <img src="assets/images/production/eccentric-slotting.jpg" alt="Eccentric Slotting Machine" style="object-fit:cover;transform:scale(1.15);">
         </div>
         <div class="exp-b"><div class="n">25+</div><div class="t">Years of Excellence</div></div>
       </div>
@@ -327,38 +324,5 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
-<script>
-  (function(){
-    var vid    = document.getElementById('plantVid');
-    var heroV1 = document.getElementById('heroVid1');
-    var heroV2 = document.getElementById('heroVid2');
-    var procV  = document.querySelector('.proc-vid');
-    if(!vid) return;
-
-    function pauseOthers(){
-      [heroV1, heroV2, procV].forEach(function(v){ if(v && !v.paused) v.pause(); });
-    }
-    function resumeOthers(){
-      // only resume the active hero
-      var active = document.querySelector('.hero-vid.active');
-      if(active) active.play().catch(function(){});
-      if(procV)  procV.play().catch(function(){});
-    }
-
-    var obs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          pauseOthers();
-          vid.play().catch(function(){});
-        } else {
-          vid.pause();
-          resumeOthers();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    obs.observe(vid);
-  })();
-</script>
 </body>
 </html>
