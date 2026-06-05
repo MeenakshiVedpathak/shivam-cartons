@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!name)  { alert('Please enter your name.'); return; }
     if (!phone) { alert('Please enter your phone number.'); return; }
-    if (!/^[6-9]\d{9}$/.test(phone.replace(/[\s\-\+]/g, '').replace(/^91/, ''))) { alert('Please enter a valid 10-digit Indian mobile number.'); return; }
+    if (!/^\d{10}$/.test(phone.replace(/[\s\-\+]/g, '').replace(/^91/, ''))) { alert('Please enter a valid 10-digit mobile number.'); return; }
     if (!email) { alert('Please enter your email.'); return; }
     if (!city) { alert('Please enter city.'); return; }
     if (!enq_description) { alert('Please enter enquiry details.'); return; }
