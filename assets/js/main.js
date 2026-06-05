@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-          access_key: '6460884c-c141-47db-8211-1d273c6cb3e6',
+          access_key: 'b621768c-e588-4d0d-8844-db0aa0151f94',
           subject: 'New Packaging Enquiry from ' + name + (company ? ' – ' + company : ''),
           from_name: 'Shivam Cartons Website',
           name, email: email || 'not provided', phone, message,
