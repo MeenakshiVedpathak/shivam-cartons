@@ -5,3 +5,5 @@ desktop.ini
 .env
 node_modules/
 .claude/
+
+.vercel
